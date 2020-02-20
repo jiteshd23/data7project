@@ -26,14 +26,15 @@ s3object = s3_client.get_object(Bucket='data7-engineering-project',
                                 Key='Academy/Business_24_2019-02-11.csv')
 # pp.pprint(s3object)
 
+
 strbody = s3object['Body'].read()
 
 pp.pprint(strbody)
 
 contents = s3_client.list_objects(Bucket='data7-engineering-project')
 
-pd.read_csv(strbody.decode('utf-8'), sep=',', header=None)
 
+#convert string into a pandas format
 # class excel where i pull the csv file
 # clean the data and push it back on the cloud
 
