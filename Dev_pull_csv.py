@@ -1,8 +1,7 @@
 import boto3
-import pprint as pp
 from io import StringIO
 import pandas as pd
-import self as self
+
 
 
 class PullCsv:
@@ -22,4 +21,3 @@ class PullCsv:
         df = pd.read_csv(StringData, sep=',') #turns into dataframe
 
         return df
-
