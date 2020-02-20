@@ -1,0 +1,53 @@
+ACADEMY (.csv)
+Col 1; Student Name
+Col 2; Trainer
+Col 3 – n; one col per one of the 6 rubric (scored out of 8) for each week of course (3 course: data (10wk), Business (10wk), Engineering (8wk)
+
+NOTE: 
+Some student don’t finish
+Missing values
+Some “special” characters in strings
+
+
+INTERVIEW NOTES (.json)
+Subject to more KVPs ?
+
+“name”: string
+“date”: string DD/MM/YYYY
+"strengths": List (strings)
+"weaknesses”: List (strings)
+"technologies": List of dictionaries
+"self_development": string “Yes or No”
+"geo_flex": string “Yes or No”
+"financial_support_self": string “Yes or No”
+"result":  string 
+"course_interest": String course name
+
+SPARTADAYS (.txt)
+Line 1: Date (Day date Month Year) ie. Thursday 1 August 2019
+Line 2: <Location> Academy
+Line 3: whitespace
+Line 4 – n: <Name> - Psychometrics: 50/100, Presentation: 21/32
+
+NOTE:
+Seperated by – (dash)
+All strings
+
+TALENT (.csv)
+Id
+Name – some capitalisation
+Gender – Missing genders 
+Dob – missing values
+Email – missing emails
+City – missing values
+Address – some strange formats – 0 at start of numbers – some places have 0 as number of house, missing values
+Postcode – some missing values
+Phone_number – some missing region codes but looks like it assumes the region code for the one above in the rows
+Uni – some missing values – some special characters
+Degree – some are strings that have “nd” and “st” at the end others are colon separated
+Invited_date – the day in the month they were invited
+Month – the month and the year (MMM-YY) they were invited
+Invited_by – name of person they were invited by (employee/applicant/student???)
+
+NOTES:
+A LOT OF MISSING DATA – different formats
