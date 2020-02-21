@@ -10,7 +10,7 @@ class PullJson:
         self._s3_resource = boto3.resource("s3")
         self._bucket = bucket
 
-    # take in file, and outputs a  json body
+    # take in file, and outputs a json body
     def pull(self, folder, file):
         file = self._s3_client.get_object(Bucket=self._bucket, Key=folder + "/" + file)
         json_file = json.loads(file['Body'].read())
