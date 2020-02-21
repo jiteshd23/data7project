@@ -31,4 +31,3 @@ def Scour():
         return strengths
 
 look = Scour()
-look.
