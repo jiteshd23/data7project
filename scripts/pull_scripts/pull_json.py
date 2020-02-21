@@ -4,10 +4,8 @@ import json
 
 # pulls file from aws when given the bucket name and outputs a dict
 class PullJson:
-
     def __init__(self, bucket):
         self._s3_client = boto3.client("s3")
-        self._s3_resource = boto3.resource("s3")
         self._bucket = bucket
 
     # take in file, and outputs a  json body

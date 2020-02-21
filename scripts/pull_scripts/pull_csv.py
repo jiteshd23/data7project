@@ -8,9 +8,7 @@ import pandas as pd
 class PullCsv:
     def __init__(self, bucket):  # when creating class, input bucket name as variable
         self.s3_client = boto3.client('s3')  # making client
-        s3_resource = boto3.resource('s3')
         self.bucket2 = bucket
-        Contents = self.s3_client.list_objects(Bucket=bucket)  # selecting bucket
 
         # use method pull on instance class PullCsv, specifying folder and filename
 
