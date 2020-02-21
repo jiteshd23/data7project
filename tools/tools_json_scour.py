@@ -28,6 +28,3 @@ class PullJson2():
                     if x not in strengths:
                         strengths.append(x)
         return strengths
-
-test = PullJson2('data7-engineering-project')
-test.find('strengths')

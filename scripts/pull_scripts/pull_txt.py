@@ -6,7 +6,6 @@ import pandas as pd
 class PullTxt:
     def __init__(self, bucket):
         self._s3_client = boto3.client("s3")
-        self._s3_resource = boto3.resource("s3")
         self._bucket = bucket
 
     # pull file method
