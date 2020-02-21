@@ -16,6 +16,3 @@ class PullJson:
         json_file = json.loads(file['Body'].read())
         return json_file
 
-# x = PullJson("data7-engineering-project")
-# x = x.pull("Interview Notes","11329.json")
-# print(x)
