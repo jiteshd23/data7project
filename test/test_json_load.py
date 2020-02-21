@@ -17,7 +17,7 @@ class JsonTest(unittest.TestCase):
     def test_dictttt(self):
 
         try:
-            json.load(open('/Users/Tech-A41/Data7proj/data7project/test.json'))
+            json.load(open('/Users/Tech-A41/Data7proj/data7project/test/test_files/file_json_load.json'))
         except Exception:
             raise AssertionError('Not in JSON format')
 
