@@ -9,11 +9,7 @@ import boto3
 # initing our client, and our classes into the Super class
 class PullSingle:
     def __init__(self, bucket):
-        self._s3_client = boto3.client("s3")
         self._bucket = bucket
-        self._PullJson = PullJson(bucket)
-        self._PullTxt = PullTxt(bucket)
-        self._PullCsv = PullCsv
 
     # sorting the files, by seeing if " " is in string
     def pull(self, folder, file, include_title=0):
@@ -26,6 +22,3 @@ class PullSingle:
 
         elif ".txt" in file:
             return PullTxt(self._bucket).pull(folder, file)
-
-
-
