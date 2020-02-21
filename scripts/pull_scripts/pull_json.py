@@ -15,3 +15,7 @@ class PullJson:
         file = self._s3_client.get_object(Bucket=self._bucket, Key=folder + "/" + file)
         json_file = json.loads(file['Body'].read())
         return json_file
+
+# x = PullJson("data7-engineering-project")
+# x = x.pull("Interview Notes","11329.json")
+# print(x)
