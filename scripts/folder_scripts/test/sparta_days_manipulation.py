@@ -1,6 +1,5 @@
 #### NEEDS TO IMPORT THE BELOW PullTxt to function:
 import boto3
-import pandas as pd
 from data7project.scripts.pull_scripts.pull_txt import PullTxt
 
 ######
