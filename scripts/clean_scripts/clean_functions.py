@@ -17,3 +17,11 @@ def create_dropout_col(table, nan_value=np.NaN):
     for col in table.columns[:-1]:
         table['dropout'] = np.where(table[col] == nan_value, 0, table['dropout'])
     return table
+
+
+def clean_course_schedule():
+    return fix_date(df_course_schedule)
+
+
+def clean_interview():
+    return fix_date(df_interview)
