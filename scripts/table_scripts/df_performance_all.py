@@ -39,4 +39,3 @@ def sa_pull():
         ["name", "SA_W1", "SA_W2", "SA_W3", "SA_W4", "SA_W5", "SA_W6", "SA_W7", "SA_W8", "SA_W9", "SA_W10"])
     return sa_pull
 
-print(df)
