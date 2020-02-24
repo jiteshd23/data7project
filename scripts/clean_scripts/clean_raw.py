@@ -24,20 +24,22 @@ s3object = s3_client.get_object(Bucket='data7-engineering-project',
 # this will read the body of the file as that holds the information.
 strbody = s3object['Body'].read()
 
-pp.pprint(strbody)
+# pp.pprint(strbody)
 
 contents = s3_client.list_objects(Bucket='data7-engineering-project')
 
 # here a dataframe is made from the s3object
 
-    str_body = strbody.decode('utf-8')
-    StringData = StringIO(str_body)
-    df = pd.read_csv(StringData, sep=',')
+str_body = strbody.decode('utf-8')
+StringData = StringIO(str_body)
+df = pd.read_csv(StringData, sep=',')
 
 # print(df.describe())
-print(df.loc[2])  # view of a row
+# print(df.loc[2])  # view of a row
 df.fillna(value=0, inplace=True)  # fill the nan values with a 0 so its usable.
-print(df.head())
+
+
+# print(df.head())
 
 
 # clean the values, all the columns other than names will be numeric
@@ -60,7 +62,7 @@ def completedColumn():
 
 
 completedColumn()
-print(df)
+# print(df)
 
 # this is used to change the datatype in the df to int so its standardised.
 score = df.columns[2:-1]
@@ -70,5 +72,7 @@ for i in score:
 # df[df.columns[2:]]
 df.head()
 
+# grouped = df.columns(['name', "trainer"])
+# print(grouped)
 
-
+# def ih_pull(df):
