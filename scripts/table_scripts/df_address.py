@@ -1,6 +1,8 @@
-# import the pullcsv tool
+# ADDRESS TABLE
+
+        # import the pullcsv tool
 from data7project.scripts.pull_scripts.pull_csv import PullCsv
-from fuzzywuzzy import fuzz
+
 address = PullCsv("data7-engineering-project").pull("Talent", "April2019Applicants.csv")
 
 # convert all address lines to string

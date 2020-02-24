@@ -20,7 +20,7 @@ class Append_All:
         a_files = []
         # append the file names to the txt_files list
         for object_summary in self.my_bucket.objects.filter(Prefix=folder + "/"):
-            file_name = object_summary.key.split("/")[1] # splits on the / to give just file name
+            file_name = object_summary.key[len(folder)+1:]  # splits on the / to give just file name
             # ignore the DS Store
             if ".DS_Store" in file_name:
                 continue
@@ -33,6 +33,7 @@ class Append_All:
                 df = self.data.pull(folder, file)  # run the .pull method to bring data into df format for first instance (count ==0)
                 count +=1  # increment count to ensure the df is not changed at the start of every iteration
             else:
-                sparta_days = df.append(self.data.pull(folder, file))  # append to existing df if not first iteration
-        return sparta_days
+                df = df.append(self.data.pull(folder, file))  # append to existing df if not first iteration
+        return df
+
 

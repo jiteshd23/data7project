@@ -1,7 +1,9 @@
 # import the pullcsv tool
 from data7project.scripts.pull_scripts.pull_single import PullSingle
+import pandas as pd
 
 academy = PullSingle("data7-engineering-project").pull("Academy", "Data_66_2019-12-02.csv", include_title=1)
+a = academy.fillna("END")
 # drop duplicates of the title and trainer (THIS SHOULD BE ONLY ONE ROW PER FILE)
 academy = academy.drop_duplicates(["title", "trainer"])
 # reduce the dataframe that is being worked with to just title and trainer
@@ -19,5 +21,10 @@ academy.drop(columns=["title"], inplace=True)
 # remove .csv from the filename in the start_date column
 academy["start_date"] = academy["start_date"].str.replace('.csv', '')
 
-print(academy)
-
+count = 0
+list = a.columns[-7:-1:]
+print(list)
+for i in list:
+    if a[i].str.contains('END').any():
+        count =+ 1
+print(count)
