@@ -5,7 +5,7 @@ from data7project.scripts.pull_scripts.pull_txt import PullTxt
 from data7project.scripts.pull_scripts.pull_csv import PullCsv
 from io import StringIO
 
-create class to take in bucket name and output a pd df merging all txt files within SpartaDays
+# create class to take in bucket name and output a pd df merging all txt files within SpartaDays
 class Append_Txt:
     def __init__(self, bucket):
     # create an instance of pull text class
