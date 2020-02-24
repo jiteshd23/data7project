@@ -19,7 +19,7 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
         if folder in key['Key']:
             dict_list.append(test.pull(folder,key['Key'][len(folder)+1:]))
     for values in dict_list:
-        outputs.append([values['name'],values['date'],values['course_interest'],values['geo_flex'],values['financial_support_self'],values['results']])
+        outputs.append([values['name'],values['date'],values['course_interest'],values['geo_flex'],values['financial_support_self'],values['result']])
     return outputs
 
 
