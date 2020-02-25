@@ -13,7 +13,7 @@ class Append_All:
     # create an instance of the Bucket
         self.my_bucket = self.s3.Bucket(bucket)
 
-    def append_all(self, folder):
+    def append_all(self, folder, include_title=0):
         # initialise a count
         count = 0
         # initialise an empty list
@@ -30,10 +30,10 @@ class Append_All:
 # iterate through the list of a_files, pull each as a df and append to previous
         for file in a_files:
             if count == 0:
-                df = self.data.pull(folder, file)  # run the .pull method to bring data into df format for first instance (count ==0)
+                df = self.data.pull(folder, file, include_title)  # run the .pull method to bring data into df format for first instance (count ==0)
                 count +=1  # increment count to ensure the df is not changed at the start of every iteration
             else:
-                df = df.append(self.data.pull(folder, file))  # append to existing df if not first iteration
+                df = df.append(self.data.pull(folder, file, include_title))  # append to existing df if not first iteration
         return df
 
 
