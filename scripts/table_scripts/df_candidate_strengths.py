@@ -21,12 +21,13 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
     for values in dict_list:
         for value in values['strengths']:
             outputs.append([values['name'],value])
-    return outputs
+    strengths = pd.DataFrame(outputs)
+    strengths.columns = ['name', 'strength']
+    return strengths
 
 
 
-strengths = pd.DataFrame(full_list('Interview Notes'))
-strengths.columns = ['name','strength']
+
 print(strengths)
 
 

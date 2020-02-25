@@ -29,5 +29,3 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
 
 
 
-
-print(full_list('Interview Notes'))
