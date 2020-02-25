@@ -3,13 +3,13 @@ import json
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
-# pulls file from aws when given the bucket name and outputs a dict
 
 
 
 
 
-def full_list(folder):  # breaks down dataframe into only relevant information.
+
+def make_c_skills(folder):  # breaks down dataframe into only relevant information.
     test = PullSingle('data7-engineering-project')
     _s3_client = boto3.client("s3")
     contents = _s3_client.list_objects(Bucket='data7-engineering-project')
@@ -21,10 +21,7 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
     for values in dict_list:
         for value in values['technologies']:
             outputs.append([values['name'],value['language'],value['self_score']])
-    return outputs
+    skills = pd.DataFrame(outputs)
+    skills.columns = ['name', 'language', 'self score']
+    return skills
 
-
-
-strengths = pd.DataFrame(full_list('Interview Notes'))
-strengths.columns = ['name','language','self score']
-print(strengths)

@@ -9,7 +9,7 @@ from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
 
-def full_list(folder):  # breaks down dataframe into only relevant information.
+def make_c_strengths(folder):  # breaks down dataframe into only relevant information.
     test = PullSingle('data7-engineering-project')
     _s3_client = boto3.client("s3")
     contents = _s3_client.list_objects(Bucket='data7-engineering-project')
@@ -21,12 +21,8 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
     for values in dict_list:
         for value in values['strengths']:
             outputs.append([values['name'],value])
-    return outputs
-
-
-
-strengths = pd.DataFrame(full_list('Interview Notes'))
-strengths.columns = ['name','strength']
-print(strengths)
+    strengths = pd.DataFrame(outputs)
+    strengths.columns = ['name', 'strength']
+    return strengths
 
 
