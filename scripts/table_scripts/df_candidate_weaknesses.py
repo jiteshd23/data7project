@@ -21,10 +21,9 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
     for values in dict_list:
         for value in values['weaknesses']:
             outputs.append([values['name'],value])
-    return outputs
+    weaknesses = pd.DataFrame(outputs)
+    weaknesses.columns = ['name', 'weakness']
+    return weaknesses
 
 
 
-weaknesses = pd.DataFrame(full_list('Interview Notes'))
-weaknesses.columns = ['name','weakness']
-print(weaknesses)
