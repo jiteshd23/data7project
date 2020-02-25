@@ -1,10 +1,11 @@
-# INPUTS the bucket and folder for the csvs where the cities are held
-# OUTPUTS an order csv with the list of the distinct cities
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 from data7project.tools.mispell_tool import *
 import pandas as pd
 
-def city_table(bucket, folder):
+# INPUTS the bucket and folder for the csvs where the cities are held
+
+def city_table(bucket):
+    folder = 'Talent'
     # sets up the df using append all tool
     cities = Append_All(bucket).append_all(folder)
     # drops all duplicates of city and removes na values (for purpose of creating the city id table)

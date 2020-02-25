@@ -1,5 +1,4 @@
 import boto3
-import json
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
@@ -9,10 +8,11 @@ from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
 
-def make_c_weakness(folder):  # breaks down dataframe into only relevant information.
-    test = PullSingle('data7-engineering-project')
+def make_c_weakness(bucket):  # breaks down dataframe into only relevant information.
+    folder = 'Interview Notes'
+    test = PullSingle(bucket)
     _s3_client = boto3.client("s3")
-    contents = _s3_client.list_objects(Bucket='data7-engineering-project')
+    contents = _s3_client.list_objects(Bucket=bucket)
     dict_list = []
     outputs = []
     for key in contents['Contents']:

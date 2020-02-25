@@ -1,23 +1,17 @@
 import boto3
-import json
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
-
-
-
-
-
-def make_c_skills(folder):  # breaks down dataframe into only relevant information.
-    test = PullSingle('data7-engineering-project')
+def make_c_skills(bucket):  # breaks down dataframe into only relevant information.
+    test = PullSingle(bucket)
     _s3_client = boto3.client("s3")
-    contents = _s3_client.list_objects(Bucket='data7-engineering-project')
+    contents = _s3_client.list_objects(Bucket=bucket)
     dict_list = []
     outputs = []
     for key in contents['Contents']:
-        if folder in key['Key']:
-            dict_list.append(test.pull(folder,key['Key'][len(folder)+1:]))
+        if 'Interview Notes' in key['Key']:
+            dict_list.append(test.pull('Interview Notes',key['Key'][len('Interview Notes')+1:]))
     for values in dict_list:
         for value in values['technologies']:
             outputs.append([values['name'],value['language'],value['self_score']])
@@ -25,3 +19,4 @@ def make_c_skills(folder):  # breaks down dataframe into only relevant informati
     skills.columns = ['name', 'language', 'self score']
     return skills
 
+make_c_skills('data7-engineering-project')
