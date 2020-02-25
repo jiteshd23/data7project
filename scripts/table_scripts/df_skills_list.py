@@ -24,6 +24,8 @@ def make_skills_list(bucket):  # breaks down dataframe into only relevant inform
                 outputs.append(value['language'])
     skill_list = pd.DataFrame(outputs)
     skill_list.columns = ['skills']
+    # add a unique Id
+    skill_list.insert(0, 'skill_id', range(1, 1 + len(skill_list)))
     return skill_list
 
 

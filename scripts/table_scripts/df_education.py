@@ -22,4 +22,9 @@ def df_educate(bucket):
     # drop duplicates
     university = university.drop_duplicates('uni')
     # returns an ordered list of unique unis from all csvs
-    return university.sort_values('uni', ascending=True)
+    university = university.sort_values('uni', ascending=True)
+    # add a unique Id
+    university.insert(0, 'university_id', range(1, 1 + len(university)))
+
+    # return the dataframe
+    return university

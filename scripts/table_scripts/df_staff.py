@@ -27,4 +27,9 @@ def staff(bucket, folder1, folder2):
     # runs the mispelling correction tool on the staff column
     staff = mispell(staff,"staff")
     # returns the dataframe sorted first by emp type and then by name
-    return staff.sort_values(["emp_type", "staff"], ascending=True)
+    staff = staff.sort_values(["emp_type", "staff"], ascending=True)
+    # add a unique Id
+    staff.insert(0, 'staff_id', range(1, 1 + len(staff)))
+
+    # return the dataframe
+    return staff

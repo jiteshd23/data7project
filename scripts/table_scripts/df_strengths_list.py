@@ -24,6 +24,8 @@ def make_strength_list(bucket):  # breaks down dataframe into only relevant info
                 outputs.append(value)
     strength_list = pd.DataFrame(outputs)
     strength_list.columns = ['strengths']
+    # add a unique Id
+    strength_list.insert(0, 'strength_id', range(1, 1 + len(strength_list)))
     return strength_list
 
 

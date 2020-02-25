@@ -19,4 +19,8 @@ def city_table(bucket):
     # drop duplicates
     cities = cities.drop_duplicates('city')
     # returns an ordered list of unique cities from all csvs
-    return cities.sort_values('city', ascending=True)
+    cities = cities.sort_values('city', ascending=True)
+    # add a unique Id
+    cities.insert(0, 'city_id', range(1, 1 + len(cities)))
+
+    return cities
