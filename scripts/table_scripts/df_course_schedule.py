@@ -22,6 +22,11 @@ def course_schedule(bucket):
     course_s.drop(columns=["title"], inplace=True)
     # remove .csv from the filename in the start_date column
     course_s["start_date"] = course_s["start_date"].str.replace('.csv', '')
+    # returns an ordered list of unique courses from all csvs using course and course number
+    course_s = course_s.sort_values(['course', "course_number"], ascending=True)
+    # add a unique Id
+    course_s.insert(0, 'course_schedule_id', range(1, 1 + len(course_s)))
+
     # return the dataframe
     return course_s
 

@@ -20,5 +20,6 @@ def make_weakness_list(bucket):  # breaks down dataframe into only relevant info
                 outputs.append(value)
     weakness_list = pd.DataFrame(outputs)
     weakness_list.columns = ['weaknesses']
+    # add a unique Id
+    weakness_list.insert(0, 'weakness_id', range(1, 1 + len(weakness_list)))
     return weakness_list
-print(make_weakness_list('data7-engineering-project'))
