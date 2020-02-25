@@ -2,10 +2,11 @@
 from fuzzywuzzy import fuzz
 # input the df and the column that needs correcting - output is the cleaned df
 def mispell(df, col):
+    # create an array of the values in
     arr = df[col].to_numpy()
     # initialise an empty dictionary
     dict = {}
-    # loop through the list of cities
+    # loop through the list values
     for i in arr:
         # loop through list of cities
         for x in arr:
@@ -35,4 +36,7 @@ def mispell(df, col):
         df = df.replace(incorrect, dict[incorrect])
         # now drops the duplicates since the cities have been corrected
         df = df.drop_duplicates(col)
-        return df[col]
+        # only return the column in question
+        df = df[col]
+        # return a sorted df
+        return df.sort_values(col, ascending=True)
