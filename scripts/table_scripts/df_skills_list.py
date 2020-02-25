@@ -22,10 +22,12 @@ def full_list(folder):  # breaks down dataframe into only relevant information.
         for value in values['technologies']:
             if value['language'] not in outputs:
                 outputs.append(value['language'])
-    return outputs
+    skill_list = pd.DataFrame(outputs)
+    skill_list.columns = ['skills']
+    return skill_list
 
 
 
-skill_list = pd.DataFrame(full_list('Interview Notes'))
-skill_list.columns = ['skills']
-print(skill_list)
+
+
+print(full_list('Interview Notes'))
