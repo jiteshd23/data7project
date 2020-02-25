@@ -1,5 +1,4 @@
 import boto3
-import json
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
@@ -26,6 +25,6 @@ def make_strength_list(folder):  # breaks down dataframe into only relevant info
     strength_list.columns = ['strengths']
     return strength_list
 
-print(list_of_strengths("Interview Notes"))
+print(make_strength_list("Interview Notes"))
 
 
