@@ -1,11 +1,13 @@
+from data7project.scripts.table_scripts.tools.append_tables_buckets import *
+
+
+
 # ADDRESS TABLE
 # imports a bucket
 # outputs the list of address lines and associated postcodes
 
-from data7project.scripts.table_scripts.tools.append_tables_buckets import *
-
-def course_schedule(bucket, folder):
-    address = Append_All(bucket).append_all(folder)
+def address(bucket):
+    address = Append_All(bucket).append_all('Talent')
     # convert all address lines to string
     address["address"] = address["address"].astype(str)
     # convert all address lines to string
@@ -17,4 +19,4 @@ def course_schedule(bucket, folder):
     # if the address starts with a "0" remove this
     address["address"] = address["address"].apply(lambda x: x[1:] if x.startswith("0") else x)
 
-    return address[['address','postcode']]
+    return address[['address', 'postcode']]
