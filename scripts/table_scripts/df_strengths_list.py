@@ -29,3 +29,4 @@ def make_strength_list(bucket):  # breaks down dataframe into only relevant info
     return strength_list
 
 
+
