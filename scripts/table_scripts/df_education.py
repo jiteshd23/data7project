@@ -1,12 +1,14 @@
-# INPUTS A BUCKET AND FOLDER
-# OUTPUTS a df with just the distinct University names
-# NOTE THAT THIS COULD DO WITH SOME ADDITIONAL CLEANING TO STANDARDISE UNI NAMES
-
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 from data7project.tools.mispell_tool import *
 import pandas as pd
 
-def df_educate(bucket, folder):
+
+# INPUTS A BUCKET AND FOLDER
+# OUTPUTS a df with just the distinct University names
+# NOTE THAT THIS COULD DO WITH SOME ADDITIONAL CLEANING TO STANDARDISE UNI NAMES
+
+def df_educate(bucket):
+    folder = 'Talent'
     # generate a df with all csvs for talent using the append all tool
     university = Append_All(bucket).append_all(folder)
     # drops all duplicates of uni and removes na values (for purpose of creating the uni id table)
@@ -20,4 +22,9 @@ def df_educate(bucket, folder):
     # drop duplicates
     university = university.drop_duplicates('uni')
     # returns an ordered list of unique unis from all csvs
-    return university.sort_values('uni', ascending=True)
+    university = university.sort_values('uni', ascending=True)
+    # add a unique Id
+    university.insert(0, 'university_id', range(1, 1 + len(university)))
+
+    # return the dataframe
+    return university

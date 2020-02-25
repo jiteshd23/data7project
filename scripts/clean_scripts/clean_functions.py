@@ -1,16 +1,12 @@
 import dateutil.parser
 import numpy as np
+from dateutil.parser._parser import ParserError
 
 
-def fix_date(table):
-    for col in table.columns:
-        try:
-            dateutil.parser.parse(table[col][0])
-            table[col] = table[col].map(lambda x: dateutil.parser.parse(x).strftime('%d/%m/%Y'))
-        except:
-            continue
-    return table
-
+def fix_date(table, col):
+    table_fix = table
+    table_fix[col] = table_fix[col].map(lambda x: dateutil.parser.parse(str(x)).strftime('%d/%m/%Y'), na_action='ignore')
+    return table_fix
 
 def create_dropout_col(table, nan_value=np.NaN):
     table['dropout'] = 1
@@ -25,3 +21,8 @@ def clean_course_schedule():
 
 def clean_interview():
     return fix_date(df_interview)
+
+def clean_name(table,col):
+    table_fix = table
+    table_fix[col] = table_fix[col].map(lambda x: x.title)
+    return table_fix

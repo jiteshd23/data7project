@@ -11,6 +11,7 @@ from data7project.scripts.table_scripts.df_performance_all import *
 from data7project.scripts.table_scripts.df_performance_all import *
 from data7project.scripts.table_scripts.df_skills_list import *
 from data7project.scripts.table_scripts.df_staff import *
+from data7project.tools import *
 
 #generates the final table
 class CreateAll:
@@ -35,3 +36,23 @@ class CreateAll:
 
     def prob_solve(self):
         return self._performance_bucket.ps_pull()
+
+    def address(self):
+        return address(self._bucket)
+
+    def candidate_skill(self):
+        return make_c_skills(self._bucket)
+
+    def candidate_strength(self):
+        return make_c_strengths(self._bucket)
+
+    def candidate_weakness(self):
+        return make_c_weakness(self._bucket)
+
+    def city(self):
+        return city_table(self._bucket)
+
+    def course_schedule(self):
+        return course_schedule(self._bucket)
+
+    def

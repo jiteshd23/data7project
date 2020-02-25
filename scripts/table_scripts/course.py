@@ -23,5 +23,7 @@ def courses(bucket, folder):
     total = z * len(list)
 
 # EXPLICITLY outline course lengths in essence of time initially
-course_names = pd.DataFrame(np.array([["Business", 8], ["Data", 8], ["Engineering", 10]]), columns=["course_name", "course_length"])
+    course_names = pd.DataFrame(np.array([["Business", 8], ["Data", 8], ["Engineering", 10]]), columns=["course_name", "course_length"])
+    course_names.insert(0, 'course_name_id', range(1, 1 + len(course_names)))
+    return course_names
 

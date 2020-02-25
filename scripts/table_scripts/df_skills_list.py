@@ -1,5 +1,4 @@
 import boto3
-import json
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
@@ -9,10 +8,11 @@ from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
 
-def make_skills_list(folder):  # breaks down dataframe into only relevant information.
-    test = PullSingle('data7-engineering-project')
+def make_skills_list(bucket):  # breaks down dataframe into only relevant information.
+    folder = 'Interview Notes'
+    test = PullSingle(bucket)
     _s3_client = boto3.client("s3")
-    contents = _s3_client.list_objects(Bucket='data7-engineering-project')
+    contents = _s3_client.list_objects(Bucket=bucket)
     dict_list = []
     outputs = []
     for key in contents['Contents']:
@@ -24,6 +24,8 @@ def make_skills_list(folder):  # breaks down dataframe into only relevant inform
                 outputs.append(value['language'])
     skill_list = pd.DataFrame(outputs)
     skill_list.columns = ['skills']
+    # add a unique Id
+    skill_list.insert(0, 'skill_id', range(1, 1 + len(skill_list)))
     return skill_list
 
 

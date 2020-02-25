@@ -1,8 +1,10 @@
-# INPUT bucket & academy CSVs
-# OUTPUT the academy CSVs and then returns a distinct list of the trainer, the course name, the course number and start date
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 
-def course_schedule(bucket, folder):
+# INPUT bucket & academy CSVs
+# OUTPUT the academy CSVs and then returns a distinct list of the trainer, the course name, the course number and start date
+
+def course_schedule(bucket):
+    folder = 'Academy'
     academy = Append_All(bucket).append_all(folder, include_title=1)
     # drop duplicates of the title and trainer (THIS SHOULD BE ONLY ONE ROW PER FILE)
     course_s = academy.drop_duplicates(["title", "trainer"])
@@ -20,6 +22,11 @@ def course_schedule(bucket, folder):
     course_s.drop(columns=["title"], inplace=True)
     # remove .csv from the filename in the start_date column
     course_s["start_date"] = course_s["start_date"].str.replace('.csv', '')
+    # returns an ordered list of unique courses from all csvs using course and course number
+    course_s = course_s.sort_values(['course', "course_number"], ascending=True)
+    # add a unique Id
+    course_s.insert(0, 'course_schedule_id', range(1, 1 + len(course_s)))
+
     # return the dataframe
     return course_s
 

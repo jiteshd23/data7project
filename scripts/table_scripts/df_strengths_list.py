@@ -8,10 +8,11 @@ from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
 
-def make_strength_list(folder):  # breaks down dataframe into only relevant information.
-    test = PullSingle('data7-engineering-project')
+def make_strength_list(bucket):  # breaks down dataframe into only relevant information.
+    folder = 'Interview Notes'
+    test = PullSingle(bucket)
     _s3_client = boto3.client("s3")
-    contents = _s3_client.list_objects(Bucket='data7-engineering-project')
+    contents = _s3_client.list_objects(Bucket=bucket)
     dict_list = []
     outputs = []
     for key in contents['Contents']:
@@ -23,8 +24,9 @@ def make_strength_list(folder):  # breaks down dataframe into only relevant info
                 outputs.append(value)
     strength_list = pd.DataFrame(outputs)
     strength_list.columns = ['strengths']
+    # add a unique Id
+    strength_list.insert(0, 'strength_id', range(1, 1 + len(strength_list)))
     return strength_list
 
-print(make_strength_list("Interview Notes"))
 
 
