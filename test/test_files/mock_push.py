@@ -17,18 +17,26 @@ def upload_to_aws(local_file, bucket, s3_file):
 upload_to_aws('file_json_load.json', 'data7-engineering-project', 'Test/testing_push')
 
 
-
-# NOT WORKING YET
-# def upload_all(csv_file_loc,bucket_name, s3_filename):
-#     s3 = boto3.client('s3')
-#     bucket_name = 'data7-engineering-project'
-#     csv_file_loc = glob.glob("~/Users/tech-a41/Desktop/csv_collection")
+# class to push multiple files to s3 bucket, still work in progress.
+# class PushMultiples():
 #
-#     for filename in csv_file_loc:
-#         print("Putting %s" % filename)
-#         s3.upload_file(filename, bucket_name, s3_filename)
+#     # initialising s3 client and bucket to send files to
+#     def __init__(self):
+#         self.s3_client = boto3.client("s3")
+#         self.buck = 'data7-engineering-project'
 #
-#     s3.put_object(Key="Test/testing_multi", Body=csv_file_loc)
+#     def upload_all(self, bucket_name, s3_filename):
+#         s3 = self.s3_client
+#         folder_loc = glob.glob("~/Users/tech-a41/Desktop/csv_collection")
+#
+#         # iterate through to grab all files in folder and upload to s3 bucket
+#         for filename in folder_loc:
+#             print(f"Putting filename {filename}")
+#             s3.upload_file(filename, bucket_name, s3_filename)
+#
+#         s3.put_object(Bucket="data7-engineering-project", Key="Test/testing_multiple")
 #
 #
-# upload = upload_all('data7-engineering-project', 'Test/testing')
+#
+# x = PushMultiples()
+# x.upload_all('data7-engineering-project', 'Test/testing_push')
