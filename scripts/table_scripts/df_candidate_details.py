@@ -8,6 +8,7 @@ from data7project.tools.mispell_correct import *
 import pandas as pd
 from functools import reduce
 
+
 def clean_name(table,col):
     table[col] = table[col].str.title()
     return table
