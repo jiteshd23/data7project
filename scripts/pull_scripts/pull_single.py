@@ -25,7 +25,6 @@ class PullSingle:
                 with open(dir_link) as json_file:
                     return json.load(json_file)
             else:
-                print('boop')
                 return pd.read_csv(dir_link)
 
         else:
