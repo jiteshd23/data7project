@@ -7,6 +7,7 @@ from data7project.scripts.clean_scripts.clean_functions import *
 from data7project.tools.mispell_correct import *
 import pandas as pd
 
+
 def clean_name(table,col):
     table[col].map(lambda x: x.lower).map(lambda x: x.title)
     return table
