@@ -5,9 +5,6 @@ from data7project.scripts.pull_scripts.pull_single import PullSingle
 # pulls file from aws when given the bucket name and outputs a dict
 
 
-
-
-
 def make_strength_list(bucket):  # breaks down dataframe into only relevant information.
     folder = 'Interview Notes'
     test = PullSingle(bucket)
