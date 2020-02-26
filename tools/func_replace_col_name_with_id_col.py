@@ -6,7 +6,7 @@ import pandas as pd
 # tables are in pandas form
 
 
-def replace_col_with_id(table1, table2, col1_key, col2_key, col2_replace, new_col_alias=''):
+def replace_col_with_id(table1, table2, col1_key, col2_key, col2_replace,new_col_alias=''):
     # replace col2 with col1 name for merging if they're not the same
     if col1_key != col2_key:
         table2[col1_key] = table2[col2_key]

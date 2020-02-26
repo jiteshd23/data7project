@@ -38,5 +38,3 @@ class PerformanceAll:
         sa_pull = self._appended_acad_df.filter(
             ["name", "SA_W1", "SA_W2", "SA_W3", "SA_W4", "SA_W5", "SA_W6", "SA_W7", "SA_W8", "SA_W9", "SA_W10"])
         return sa_pull
-
-print(PerformanceAll('data7-engineering-project').sd_pull())
