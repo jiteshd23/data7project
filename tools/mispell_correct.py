@@ -36,7 +36,5 @@ def mispell(df, col):
         df = df.replace(incorrect, dict[incorrect])
         # now drops the duplicates since the cities have been corrected
         df = df.drop_duplicates(col)
-        # only return the column in question
-        df = df[col]
-        # return a sorted df
-        return df.sort_values(col, ascending=True)
+        # return df
+        return df
