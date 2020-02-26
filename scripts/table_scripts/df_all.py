@@ -54,5 +54,3 @@ class CreateAll:
 
     def course_schedule(self):
         return course_schedule(self._bucket)
-
-    def
