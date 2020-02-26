@@ -70,8 +70,22 @@ class CreateAll:
     def staff(self):
         return staff(self.bucket)
 
+
+    def candidate_strength(self):
+        return make_c_strengths(self._bucket)
+
+    def candidate_weakness(self):
+        return make_c_weakness(self._bucket)
+
+    def city(self):
+        return city_table(self._bucket)
+
+    def course_schedule(self):
+        return course_schedule(self._bucket)
+
     def strength(self):
         return make_strength_list(self._bucket)
 
     def weakness(self):
         return make_weakness_list(self._bucket)
+
