@@ -1,10 +1,10 @@
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 from data7project.tools.mispell_tool import *
 
-def staff(bucket, folder1, folder2):
+def staff(bucket):
     # sets up the dfs for use using append all tool
-    academy = Append_All(bucket).append_all(folder1)
-    applic = Append_All(bucket).append_all(folder2)
+    academy = Append_All(bucket).append_all("Academy")
+    applic = Append_All(bucket).append_all("Talent")
 
     # drop duplicates based on trainer in the academy df and drop NaN values
     academy = academy.drop_duplicates('trainer').dropna()
