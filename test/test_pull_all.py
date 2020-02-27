@@ -22,7 +22,7 @@ class PullAllTest(unittest.TestCase):
         self.bucket = PullSingle(bucket="data7-engineering-project")
         self.assertIs(type(self.bucket.pull("Talent", "April2019Applicants.csv")), pd.DataFrame)
 
-    # unit testing to see if the pulled csv file is a dataframe object
+    # unit testing to see if the pulled txt file is a dataframe object
     def test_text(self):
         self.bucket = PullSingle(bucket="data7-engineering-project")
         self.assertIs(type(self.bucket.pull("SpartaDays", "Sparta Day 1 August 2019.txt")), pd.DataFrame)
