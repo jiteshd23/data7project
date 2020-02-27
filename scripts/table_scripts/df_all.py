@@ -48,7 +48,7 @@ class CreateAll:
         return self._performance_bucket.ih_pull()
 
     def savvy(self):
-        return self._performance_bucket.ih_pull()
+        return self._performance_bucket.is_pull()
 
     def perserve(self):
         return self._performance_bucket.pv_pull()
@@ -66,7 +66,7 @@ class CreateAll:
         return make_skills_list(self._bucket)
 
     def staff(self):
-        return staff(self.bucket)
+        return staff(self._bucket)
 
     def candidate_strength(self):
         return make_c_strengths(self._bucket)
