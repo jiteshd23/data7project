@@ -80,7 +80,6 @@ class CreateAll:
     def course_schedule(self):
         return course_schedule(self._bucket)
 
-
     def strength(self):
         return make_strength_list(self._bucket)
 
