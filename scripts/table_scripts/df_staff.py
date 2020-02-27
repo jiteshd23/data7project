@@ -25,7 +25,7 @@ def staff(bucket):
     # appends the applic and academy tables to generate all staff
     staff = academy.append(applic)
     # runs the mispelling correction tool on the staff column
-    staff = mispell(staff,"staff")
+    # staff = mispell(staff,"staff")
     # returns the dataframe sorted first by emp type and then by name
     staff = staff.sort_values(["emp_type", "staff"], ascending=True)
     # add a unique Id

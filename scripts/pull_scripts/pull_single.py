@@ -19,7 +19,10 @@ class PullSingle:
 
     # sorting the files, by seeing if " " is in string
     def pull(self, folder, file, include_title=0):
-        dir_link = f'{os.path.abspath(__file__)[:-len("pull_single.py")]}/temp_files/{folder}_{file})'.replace(' ', '-')
+        if include_title == 0:
+            dir_link = f'{os.path.abspath(__file__)[:-len("pull_single.py")]}/temp_files/{folder}_{file})'.replace(' ', '-')
+        else:
+            dir_link = f'{os.path.abspath(__file__)[:-len("pull_single.py")]}/temp_files/{folder}_{file}_title)'.replace(' ', '-')
         if os.path.isfile(dir_link):
             if ".json" in file:
                 with open(dir_link) as json_file:
