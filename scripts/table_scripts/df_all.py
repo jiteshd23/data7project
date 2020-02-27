@@ -12,7 +12,7 @@ from data7project.scripts.table_scripts.df_staff import *
 from data7project.scripts.table_scripts.df_strengths_list import *
 from data7project.scripts.table_scripts.df_weakness_list import *
 from data7project.scripts.table_scripts.course import *
-
+from data7project.scripts.table_scripts.sparta_days import *
 
 # class that uniforms naming and can generate all tables with names instead of ids
 class CreateAll:
@@ -89,3 +89,5 @@ class CreateAll:
     def weakness(self):
         return make_weakness_list(self._bucket)
 
+    def sparta_days(self):
+        return sparta_days(self._bucket)

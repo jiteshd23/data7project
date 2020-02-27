@@ -6,12 +6,13 @@
 from io import StringIO
 import boto3
 class Push:
-    def __init__(self, bucket):  # when creating class, input bucket name as variable
+    def __init__(self, bucket, folder):  # when creating class, input bucket name as variable
         self.s3_resource = boto3.resource('s3')  # making resource
         self.bucket2 = bucket #instance of the bucket
+        self.folder = folder
 
 # method to push a df to a "folder" location within the initialised bucket as a CSV file
-    def push_to_cloud(self, df, folder):
+    def push_to_cloud(self, df):
         # initialise the stringIO
         csv_buffer = StringIO()
         # save df to csv
@@ -21,4 +22,4 @@ class Push:
         # make filename a csv string
         file_name = file_n + ".csv"
         # use resource to push the csv file back into the initialised bucket
-        self.s3_resource.Object(self.bucket2, folder + "/" + file_name).put(Body=csv_buffer.getvalue())
+        self.s3_resource.Object(self.bucket2, self.folder + "/" + file_name).put(Body=csv_buffer.getvalue())

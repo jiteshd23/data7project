@@ -6,6 +6,9 @@ _config.read('../config.ini')
 def bucket():
     return _config['AWS']['bucket']
 
+def clean_folder():
+    return _config['AWS']['cleaned_folder']
+
 def driver():
     return _config['SQL-SERVER']['driver']
 
