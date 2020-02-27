@@ -66,6 +66,7 @@ def names_from_json(bucket):  # breaks down dataframe into only relevant informa
     out = mispell(clean_name(out,"name"), "name")
     return out
 
+
 interview = names_from_json('data7-engineering-project')
 data_frames = [talent, interview,sdays,academy]
 full = reduce(lambda left,right: pd.merge(left,right,on=['name'],how='outer'), data_frames)
