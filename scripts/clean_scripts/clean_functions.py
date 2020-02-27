@@ -23,6 +23,5 @@ def clean_interview():
     return fix_date(df_interview)
 
 def clean_name(table,col):
-    table_fix = table
-    table_fix[col] = table_fix[col].map(lambda x: x.title)
-    return table_fix
+    table[col] = table[col].str.title()
+    return table

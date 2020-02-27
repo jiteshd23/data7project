@@ -29,4 +29,3 @@ def course_schedule(bucket):
 
     # return the dataframe
     return course_s
-
