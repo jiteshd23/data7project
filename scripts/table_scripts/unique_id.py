@@ -104,7 +104,7 @@ final = final.sort_values(["int_date"], ascending=True)
 # add a unique Id
 final.insert(0, 'talent_id', range(1, 1 + len(final)))
 
-print(final)
+
 
 #
 #
@@ -140,3 +140,15 @@ print(final)
 #     self.bucket2 = bucket
 #     self.talent = Append_All(bucket).append_all("Talent")
 #     self.academy = Append_All(bucket).append_all("Academy", include_title=1)
+
+
+
+s = Append_All("data7-engineering-project").append_all("SpartaDays")
+s = fix_date(s, "Date")
+s = s[["Name", "Date"]]
+talent = unique_talent("data7-engineering-project")
+academy = unique_course("data7-engineering-project")
+# converts the date string to date time for comparison in both dataframes
+
+# f = s.append(talent)
+# final1 = f.append(academy)
