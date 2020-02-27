@@ -1,6 +1,9 @@
 import boto3
 import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
+from data7project.scripts.clean_scripts.clean_functions import *
+
+
 # pulls file from aws when given the bucket name and outputs a dict
 
 def make_c_strengths(bucket):  # breaks down dataframe into only relevant information.
@@ -12,12 +15,15 @@ def make_c_strengths(bucket):  # breaks down dataframe into only relevant inform
     outputs = []
     for key in contents['Contents']:
         if folder in key['Key']:
-            dict_list.append(test.pull(folder,key['Key'][len(folder)+1:]))
+            dict_list.append(test.pull(folder, key['Key'][len(folder) + 1:]))
     for values in dict_list:
         for value in values['strengths']:
-            outputs.append([values['name'],value])
+            outputs.append([values['name'], values["date"], value])
     strengths = pd.DataFrame(outputs)
-    strengths.columns = ['name', 'strength']
+    strengths.columns = ['name', "date" 'strength']
+    strengths = fix_date(strengths, "date")
+    strengths = clean_name(strengths, "name")
+    # create a UNID based on name and date
+    strengths["UNID"] = strengths["name"] + strengths["date"]
+    strengths = strengths.drop(['name', 'date'], axis=1)
     return strengths
-
-

@@ -30,8 +30,7 @@ def clean_interview():
 
 def clean_name(table,col):
     try:
-        table_fix = table
-        table_fix[col] = table_fix[col].map(lambda x: x.title)
-        return table_fix
+        table[col] = table[col].str.title()
+        return table
     except TypeError:
         print('ERROR: Inputs are the incorrect type')

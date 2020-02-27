@@ -2,6 +2,7 @@ from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 from data7project.tools.mispell_tool import *
 import pandas as pd
 
+
 # INPUTS the bucket and folder for the csvs where the cities are held
 
 def city_table(bucket):
