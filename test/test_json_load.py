@@ -1,8 +1,4 @@
-import pytest
 import unittest
-import os
-import os.path
-import json
 from data7project.scripts.pull_scripts.pull_json import PullJson
 
 json_pull = PullJson
@@ -10,7 +6,7 @@ json_pull = PullJson
 
 class JsonTest(unittest.TestCase):
 
-    # check file can be loaded from aws s3 bucket
+    # check file can be loaded from aws s3 bucket, raises an Assertion error if the pulled file is not in json format
     def test_dict(self):
         try:
             x = json_pull("data7-engineering-project")
