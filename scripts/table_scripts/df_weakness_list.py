@@ -3,7 +3,6 @@ import pandas as pd
 from data7project.scripts.pull_scripts.pull_single import PullSingle
 
 
-
 def make_weakness_list(bucket):  # breaks down dataframe into only relevant information.
     folder = 'Interview Notes'
     test = PullSingle(bucket)
@@ -13,7 +12,7 @@ def make_weakness_list(bucket):  # breaks down dataframe into only relevant info
     outputs = []
     for key in contents['Contents']:
         if folder in key['Key']:
-            dict_list.append(test.pull(folder,key['Key'][len(folder)+1:]))
+            dict_list.append(test.pull(folder, key['Key'][len(folder) + 1:]))
     for values in dict_list:
         for value in values['weaknesses']:
             if value not in outputs:

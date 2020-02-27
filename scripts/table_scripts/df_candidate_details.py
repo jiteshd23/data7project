@@ -1,12 +1,5 @@
-from data7project.scripts.pull_scripts.pull_single import PullSingle
-from data7project.scripts.pull_scripts.pull_csv import PullCsv
-from data7project.scripts.pull_scripts.pull_json import PullJson
-from data7project.scripts.pull_scripts.pull_txt import PullTxt
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 from data7project.scripts.clean_scripts.clean_functions import *
-from data7project.tools.mispell_correct import *
-import pandas as pd
-from functools import reduce
 
 
 def clean_name(table, col):
@@ -92,7 +85,4 @@ def candidate_details(bucket):
     cand_id = (clean_name(cand_id, 'name'))
     cand_id["UNID"] = cand_id["name"] + cand_id["invite_date"]
     cand_id = cand_id.drop(["invited_date", "month"], axis=1)
-    print(cand_id.columns)
-
-
-candidate_details("data7-engineering-project")
+    return cand_id

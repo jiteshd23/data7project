@@ -14,7 +14,7 @@ def df_educate(bucket):
     # drops all duplicates of uni and removes na values (for purpose of creating the uni id table)
     university = university.drop_duplicates('uni').dropna()
     # corrects any slight mispelliing of uni names - use 70% matching
-    university = mispell(university, "uni", ratio=70)
+    # university = mispell(university, "uni", ratio=70)
     # creates a frame of the series of just the unis
     frame = {"uni": university["uni"]}
     # create a dataframe for the unis

@@ -1,5 +1,6 @@
 from data7project.scripts.table_scripts.tools.append_tables_buckets import *
 
+
 # INPUT bucket & academy CSVs
 # OUTPUT the academy CSVs and then returns a distinct list of the trainer, the course name, the course number and start date
 
@@ -9,7 +10,7 @@ def course_schedule(bucket):
     # drop duplicates of the title and trainer (THIS SHOULD BE ONLY ONE ROW PER FILE)
     course_s = academy.drop_duplicates(["title", "trainer"])
     # reduce the dataframe that is being worked with to just title and trainer
-    course_s = course_s[['title','trainer']]
+    course_s = course_s[['title', 'trainer']]
     # new data frame with split value columns on the underscore
     new = course_s["title"].str.split("_", n=2, expand=True)
     # making separate course name column from new data frame
