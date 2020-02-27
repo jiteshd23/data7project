@@ -11,7 +11,6 @@ import pandas as pd
 
 import boto3
 
-print()
 
 # initing our client, and our classes into the Super class
 class PullSingle:
@@ -44,4 +43,7 @@ class PullSingle:
                 pd_value = PullTxt(self._bucket).pull(folder, file)
                 pd_value.to_csv(dir_link, mode='x')
                 return pd_value
+
+
+
 
