@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # THIS FUNCTION IS A WORK IN PROGRESS - The course name and length is detailed explicity below
-def courses(bucket):
+def courses():
     # courses = Append_All(bucket).append_all(folder, include_title=1)
     # # calculate the week length of the course
     # courses = courses.fillna("END")

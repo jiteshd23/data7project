@@ -27,4 +27,5 @@ def make_c_weakness(bucket):  # breaks down dataframe into only relevant informa
     # create a UNID based on name and date
     weaknesses["UNID"] = weaknesses["name"] + weaknesses["date"]
     weaknesses = weaknesses.drop(['name', 'date'], axis=1)
+    weaknesses = weaknesses[['UNID', 'weakness']]
     return weaknesses

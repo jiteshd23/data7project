@@ -24,7 +24,7 @@ def make_c_skills(bucket):  # breaks down dataframe into only relevant informati
     skills["UNID"] = skills["name"] + skills["date"]
     # drop name and date
     skills = skills.drop(['name', 'date'], axis=1)
+    skills = skills[[skills.columns[2], skills.columns[0], skills.columns[1]]]
     return skills
 
 
-print(make_c_skills('data7-engineering-project'))

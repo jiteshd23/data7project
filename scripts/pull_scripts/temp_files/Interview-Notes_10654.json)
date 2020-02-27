@@ -1,0 +1,1 @@
+{"name": "Standford Glanert", "date": "17/9/2019", "strengths": ["Patient", "Courteous"], "weaknesses": ["Slow"], "technologies": [{"language": "Python", "self_score": 2}, {"language": "C++", "self_score": 4}, {"language": "Python", "self_score": 2}], "self_development": "Yes", "geo_flex": "No", "financial_support_self": "Yes", "result": "Fail", "course_interest": "Data"}

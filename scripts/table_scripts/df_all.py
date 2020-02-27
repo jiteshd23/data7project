@@ -1,5 +1,4 @@
-from data7project.scripts.table_scripts.df_address import *
-# from data7project.scripts.table_scripts.df_candidate_details import *
+from data7project.scripts.table_scripts.df_candidate_details import *
 from data7project.scripts.table_scripts.df_candidate_skills import *
 from data7project.scripts.table_scripts.df_candidate_strengths import *
 from data7project.scripts.table_scripts.df_candidate_weaknesses import *
@@ -12,6 +11,7 @@ from data7project.scripts.table_scripts.df_skills_list import *
 from data7project.scripts.table_scripts.df_staff import *
 from data7project.scripts.table_scripts.df_strengths_list import *
 from data7project.scripts.table_scripts.df_weakness_list import *
+from data7project.scripts.table_scripts.course import *
 
 
 # class that uniforms naming and can generate all tables with names instead of ids
@@ -20,14 +20,17 @@ class CreateAll:
         self._bucket = bucket
         self._performance_bucket = PerformanceAll(bucket)
 
-    def address(self):
-        return address(self._bucket)
+    def course(self):
+        return courses()
 
     def candidate_skill(self):
         return make_c_skills(self._bucket)
 
     def candidate_strength(self):
         return make_c_strengths(self._bucket)
+
+    def candidate(self):
+        return candidate_details(self._bucket)
 
     def candidate_weakness(self):
         return make_c_weakness(self._bucket)

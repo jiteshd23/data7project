@@ -20,10 +20,11 @@ def make_c_strengths(bucket):  # breaks down dataframe into only relevant inform
         for value in values['strengths']:
             outputs.append([values['name'], values["date"], value])
     strengths = pd.DataFrame(outputs)
-    strengths.columns = ['name', "date" 'strength']
+    strengths.columns = ['name', "date", 'strength']
     strengths = fix_date(strengths, "date")
     strengths = clean_name(strengths, "name")
     # create a UNID based on name and date
     strengths["UNID"] = strengths["name"] + strengths["date"]
     strengths = strengths.drop(['name', 'date'], axis=1)
+    strengths = strengths[['UNID','strength']]
     return strengths

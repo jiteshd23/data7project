@@ -138,11 +138,11 @@ def unique(bucket):
     final = final.sort_values(["int_date"], ascending=True)
     # add a unique Id
     final.insert(0, 'talent_id', range(1, 1 + len(final)))
+    final = final.drop('name', axis=1)
     return final
 
-a = unique("data7-engineering-project")
 
-print(a[["int_date", "start_course"]])
+
 #
 #
 # def unique_sparta(bucket):
